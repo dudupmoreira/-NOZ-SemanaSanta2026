@@ -3,8 +3,8 @@
 // ============================================
 const CONFIG = {
   whatsappNumber: "5527997016929",
-  webhookUrl: "https://services.leadconnectorhq.com/hooks/iuYB2N2aOtvi7dlzJ1sQ/webhook-trigger/138b2fb5-81f4-43ba-8dc2-189fddb645c2",
-  googleSheetsUrl: "https://script.google.com/macros/s/AKfycbyB620wBS4Sji4SGjJb-Plj3vXBGGREaEn9S5B9xCfYbcu1HixDZEkXg2QYUUllqs2glQ/exec",
+  webhookUrl: "PLACEHOLDER_SEMANA_SANTA_WEBHOOK_URL", // TODO: substituir após criar pipeline no Homio
+  googleSheetsUrl: "", // opcional: criar nova planilha para Semana Santa
   pixCNPJ: "33339742000103",
   pixNome: "NOZ COMIDA AFETIVA",
   pixCidade: "VITORIA",
@@ -17,7 +17,7 @@ const CONFIG = {
 // ESTADO DA APLICAÇÃO
 // ============================================
 let cart = [];
-let selectedDate = "31/12";
+let selectedDate = "03/04";
 let customerData = {
   nome: "",
   telefone: "",
@@ -355,13 +355,17 @@ function renderCartBody() {
         Data de Retirada
       </label>
       <div class="date-options">
-        <div class="date-option disabled" style="opacity: 0.5; cursor: not-allowed;">
-          <strong>24/12</strong>
-          <span>Encomendas Encerradas</span>
+        <div class="date-option ${selectedDate === '03/04' ? 'selected' : ''}" onclick="selectDate('03/04')">
+          <strong>03/04</strong>
+          <span>Quinta-feira Santa</span>
         </div>
-        <div class="date-option ${selectedDate === '31/12' ? 'selected' : ''}" onclick="selectDate('31/12')">
-          <strong>31/12</strong>
-          <span>Véspera de Ano Novo</span>
+        <div class="date-option ${selectedDate === '04/04' ? 'selected' : ''}" onclick="selectDate('04/04')">
+          <strong>04/04</strong>
+          <span>Sexta-feira Santa</span>
+        </div>
+        <div class="date-option ${selectedDate === '05/04' ? 'selected' : ''}" onclick="selectDate('05/04')">
+          <strong>05/04</strong>
+          <span>Sábado de Aleluia</span>
         </div>
       </div>
     </div>
@@ -470,7 +474,7 @@ async function finalizarPedido() {
   loadingSpan.style.display = 'inline';
   textSpan.textContent = 'Processando...';
   
-  const orderNumber = `NOZ-2025-${String(Date.now()).slice(-4)}`;
+  const orderNumber = `NOZ-SS26-${String(Date.now()).slice(-4)}`;
   const total = getCartTotal();
   const entrada = total / 2;
 
@@ -479,7 +483,8 @@ async function finalizarPedido() {
 
   const pedido = {
     numero_pedido: orderNumber,
-    data_retirada: selectedDate === '24/12' ? '2025-12-24' : '2025-12-31',
+    data_retirada: selectedDate === '03/04' ? '2026-04-03' :
+                   selectedDate === '04/04' ? '2026-04-04' : '2026-04-05',
     nome: customerData.nome,
     telefone: customerData.telefone.replace(/\D/g, ''),
     email: customerData.email,
@@ -598,7 +603,7 @@ function showConfirmationPage(pedido) {
         </svg>
         Retirada
       </span>
-      <span>${selectedDate}/2025</span>
+      <span>${selectedDate}/2026</span>
     </div>
     <div class="total-row big">
       <span>Total</span>
@@ -630,9 +635,9 @@ function showConfirmationPage(pedido) {
   }).join('\n');
 
   const mensagemWhatsApp = encodeURIComponent(
-    `Olá! Acabei de fazer o pedido *${pedido.numero_pedido}* para a Ceia de Natal.\n\n` +
+    `Olá! Acabei de fazer o pedido *${pedido.numero_pedido}* para a Semana Santa do NOZ.\n\n` +
     `*Itens do pedido:*\n${itensResumo}\n\n` +
-    `*Retirada:* ${selectedDate}/2025\n` +
+    `*Retirada:* ${selectedDate}/2026\n` +
     `*Total:* R$ ${formatPrice(total)}\n` +
     `*Entrada (50%):* R$ ${formatPrice(entrada)}\n\n` +
     `*Nome:* ${pedido.nome}\n\n` +
@@ -760,6 +765,7 @@ function setupCategoryNav() {
   // Função auxiliar para scroll
   function scrollToCategory(category) {
     const section = document.getElementById(category);
+    if (!section) return;
     const headerHeight = window.innerWidth <= 768 ? 105 : 140;
     const y = section.getBoundingClientRect().top + window.pageYOffset - headerHeight;
     window.scrollTo({ top: y, behavior: 'smooth' });
@@ -791,10 +797,12 @@ function setupCategoryNav() {
       const mainContentBottom = mainContent.offsetTop + mainContent.offsetHeight;
       const currentScroll = window.scrollY + window.innerHeight;
       
-      if (currentScroll > mainContentBottom + 100) {
-        categoriesNav.classList.add('hidden');
-      } else {
-        categoriesNav.classList.remove('hidden');
+      if (categoriesNav) {
+        if (currentScroll > mainContentBottom + 100) {
+          categoriesNav.classList.add('hidden');
+        } else {
+          categoriesNav.classList.remove('hidden');
+        }
       }
     }
   });
@@ -849,7 +857,7 @@ function showSharedOrderPage(pedidoData) {
         </svg>
         Retirada
       </span>
-      <span>${selectedDate}/2025</span>
+      <span>${selectedDate}/2026</span>
     </div>
     <div class="total-row big">
       <span>Total</span>
@@ -881,9 +889,9 @@ function showSharedOrderPage(pedidoData) {
   ).join('\n');
 
   const mensagemWhatsApp = encodeURIComponent(
-    `Olá! Acabei de fazer o pedido *${orderNumber}* para a Ceia de Natal.\n\n` +
+    `Olá! Acabei de fazer o pedido *${orderNumber}* para a Semana Santa do NOZ.\n\n` +
     `*Itens do pedido:*\n${itensResumo}\n\n` +
-    `*Retirada:* ${selectedDate}/2025\n` +
+    `*Retirada:* ${selectedDate}/2026\n` +
     `*Total:* R$ ${formatPrice(total)}\n` +
     `*Entrada (50%):* R$ ${formatPrice(entrada)}\n\n` +
     `*Nome:* ${clienteName}\n\n` +
