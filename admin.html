@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M2TM3LP9');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BR3YMR3MLD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BR3YMR3MLD');
+    </script>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1549972042823192');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1549972042823192&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Ceia do Noz 2025</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="imagens/favicon.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-vinho: #5c0f1e;
+            --color-dourado: #d4af37;
+            --color-bg: #f5f5f5;
+            --color-card: #ffffff;
+            --color-text: #2d2d2d;
+            --color-text-muted: #666666;
+            --color-border: #e0e0e0;
+            --color-success: #28a745;
+            --color-info: #17a2b8;
+            --shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        /* Login Screen */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--color-vinho) 0%, #3d0a14 100%);
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-logo {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .login-title {
+            color: var(--color-vinho);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .login-subtitle {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--color-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--color-border);
+            background: white;
+            color: var(--color-text);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--color-vinho);
+            box-shadow: 0 0 0 3px rgba(92, 15, 30, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--color-vinho);
+            color: white;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            background: #7a1428;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(92, 15, 30, 0.3);
+        }
+
+        .btn-success {
+            background: var(--color-success);
+            color: white;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+
+        .btn-success:hover:not(:disabled) {
+            background: #218838;
+        }
+
+        .btn-success:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-bg);
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: none;
+        }
+
+        .dashboard.active {
+            display: block;
+        }
+
+        .dashboard-header {
+            background: white;
+            box-shadow: var(--shadow);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .dashboard-title {
+            color: var(--color-vinho);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            background: var(--color-bg);
+            padding: 4px;
+            border-radius: 8px;
+        }
+
+        .filter-btn {
+            padding: 6px 16px;
+            background: transparent;
+            color: var(--color-text-muted);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-btn.active {
+            background: white;
+            color: var(--color-vinho);
+            box-shadow: var(--shadow);
+        }
+
+        .filter-btn:hover:not(.active) {
+            background: rgba(255,255,255,0.5);
+        }
+
+        .btn-refresh {
+            background: var(--color-info);
+            color: white;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+
+        .btn-refresh:hover {
+            background: #138496;
+        }
+
+        .btn-logout {
+            background: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+
+        .btn-logout:hover {
+            background: #c82333;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--color-vinho);
+        }
+
+        .stat-label {
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: var(--color-vinho);
+            font-weight: 700;
+        }
+
+        /* Pedidos Grid */
+        .pedidos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px;
+        }
+
+        .pedido-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--color-border);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .pedido-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pedido-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--color-bg);
+        }
+
+        .pedido-numero {
+            color: var(--color-vinho);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .badge-data {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .badge-confirmado {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .pedido-info {
+            margin-bottom: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+        }
+
+        .info-icon {
+            flex-shrink: 0;
+            width: 16px;
+        }
+
+        .info-label {
+            color: var(--color-text-muted);
+            min-width: 60px;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--color-text);
+            word-break: break-word;
+        }
+
+        .pedido-produtos {
+            background: var(--color-bg);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+
+        .produtos-title {
+            color: var(--color-text);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .produto-item {
+            color: var(--color-text);
+            padding: 4px 0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .pedido-valores {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .valor-item {
+            text-align: center;
+        }
+
+        .valor-label {
+            color: var(--color-text-muted);
+            font-size: 0.75rem;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .valor-amount {
+            color: var(--color-vinho);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .pedido-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .pedido-actions .btn {
+            flex: 1;
+        }
+
+        .observacoes {
+            background: #fff3cd;
+            border-left: 3px solid #ffc107;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: #856404;
+        }
+
+        /* States */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--color-text-muted);
+            font-size: 1rem;
+        }
+
+        .loading::before {
+            content: "⏳";
+            display: block;
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--color-text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+
+        .empty-state h3 {
+            color: var(--color-text);
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .pedidos-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pedidos-container {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .header-actions {
+                flex-direction: column;
+            }
+
+            .filter-group {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .pedido-valores {
+                grid-template-columns: 1fr;
+            }
+
+            .pedido-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* Scrollbar */
+        .pedido-produtos::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .pedido-produtos::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .pedido-produtos::-webkit-scrollbar-thumb {
+            background: var(--color-border);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginContainer" class="login-container">
+        <div class="login-box">
+            <div class="login-logo">🎄</div>
+            <h1 class="login-title">Ceia do Noz 2025</h1>
+            <p class="login-subtitle">Painel Administrativo</p>
+            
+            <div class="input-group">
+                <label for="password">Senha de Acesso</label>
+                <input type="password" id="password" placeholder="Digite a senha" autocomplete="current-password">
+            </div>
+            
+            <button class="btn btn-primary" onclick="login()">Entrar</button>
+            
+            <div id="loginError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1 class="dashboard-title">
+                    <span>📋</span>
+                    <span>Pedidos da Ceia</span>
+                </h1>
+                <div class="header-actions">
+                    <div class="filter-group">
+                        <button class="filter-btn active" onclick="filterPedidos('todos')" data-filter="todos">Todos</button>
+                        <button class="filter-btn" onclick="filterPedidos('24/12')" data-filter="24/12">24/12</button>
+                        <button class="filter-btn" onclick="filterPedidos('31/12')" data-filter="31/12">31/12</button>
+                    </div>
+                    <div class="filter-group">
+                        <button class="filter-btn active" onclick="filterByPaymentStatus('todos')" data-payment-filter="todos">Todos</button>
+                        <button class="filter-btn" onclick="filterByPaymentStatus('pagos')" data-payment-filter="pagos">Pagos</button>
+                        <button class="filter-btn" onclick="filterByPaymentStatus('aguardando')" data-payment-filter="aguardando">Aguardando</button>
+                    </div>
+                    <button class="btn btn-refresh" onclick="loadPedidos()">🔄 Atualizar</button>
+                    <button class="btn btn-logout" onclick="logout()">Sair</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-label">Total de Pedidos</div>
+                    <div class="stat-number" id="totalPedidos">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Valor Total</div>
+                    <div class="stat-number" id="valorTotal">R$ 0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Entrada (50%)</div>
+                    <div class="stat-number" id="totalEntrada">R$ 0</div>
+                </div>
+            </div>
+
+            <div id="pedidosContainer" class="pedidos-container">
+                <div class="loading">Carregando pedidos...</div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Configuração da API - Agora usa API routes serverless (token protegido)
+        const API_CONFIG = {
+            baseUrl: '/api',  // API routes serverless do Vercel
+            locationId: 'iuYB2N2aOtvi7dlzJ1sQ',
+            pipelineId: 'pwmwfFN1OoHoRpu70uY2'
+        };
+
+        const ADMIN_PASSWORD = 'noz2025';
+
+        // Mapeamento de campos personalizados das OPORTUNIDADES
+        const OPPORTUNITY_FIELD_MAP = {
+            'valor_entrada': '2SV51sUefbrpE6j54idA',
+            'data_retirada': '8onjX8uBLwCOGns5rt2Y',
+            'numero_pedido': 'JZ4QzbdK3QSFQUT8b6OY',
+            'produtos': 'KjW6kvcr3bfEhHeMOGFt',
+            'observacoes': 'VAhkeO8SWwSiSqJG88is',
+            'valor_total': 'VpeiHn8nXzv4QWiCf9pl',
+            'status_pedido': 'tQP5XogWJYh0MbKAYjOm'
+        };
+
+        // IDs dos estágios do pipeline "Pedidos Ceia"
+        const PIPELINE_STAGES = {
+            'aguardando': 'a6b0ad85-0fc1-4f8c-abb8-8942e402e685',
+            'pago': 'f03fdf22-edd1-4c47-bdf7-56a3b51e5b62',
+            'pronto': '61a9a4f3-d168-4c92-bd85-1d7d4876ec29',
+            'entregue': '69ad13db-bc91-43af-b576-a5003e309520',
+            'cancelado': '10fa68b8-7b55-4059-8a02-65e8cdce2ecc'
+        };
+
+        let allPedidos = [];
+        let currentFilter = 'todos';
+        let currentPaymentFilter = 'todos';
+
+        // Login
+        function login() {
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('loginError');
+
+            if (password === ADMIN_PASSWORD) {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('dashboard').classList.add('active');
+                loadPedidos();
+            } else {
+                errorDiv.textContent = 'Senha incorreta!';
+                errorDiv.style.display = 'block';
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        document.getElementById('password')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') login();
+        });
+
+        // Logout
+        function logout() {
+            document.getElementById('loginContainer').style.display = 'flex';
+            document.getElementById('dashboard').classList.remove('active');
+            document.getElementById('password').value = '';
+        }
+
+        // Carregar pedidos da API (agora buscando OPORTUNIDADES)
+        async function loadPedidos() {
+            const container = document.getElementById('pedidosContainer');
+            container.innerHTML = '<div class="loading">Carregando pedidos...</div>';
+
+            try {
+                const response = await fetch(
+                    `${API_CONFIG.baseUrl}/opportunities/search?location_id=${API_CONFIG.locationId}&limit=100`
+                );
+
+                if (!response.ok) {
+                    throw new Error(`Erro na API: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // Filtrar apenas oportunidades do pipeline "Pedidos Ceia" com status "open" (ativas)
+                allPedidos = (data.opportunities || []).filter(opp => 
+                    opp.pipelineId === API_CONFIG.pipelineId && opp.status === 'open'
+                );
+
+                console.log(`✅ ${allPedidos.length} pedidos carregados`);
+                displayPedidos();
+                updateStats();
+            } catch (error) {
+                console.error('Erro ao carregar pedidos:', error);
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">⚠️</div>
+                        <h3>Erro ao carregar pedidos</h3>
+                        <p>${error.message}</p>
+                        <button class="btn btn-primary" onclick="loadPedidos()" style="max-width: 300px; margin: 20px auto;">
+                            Tentar Novamente
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Exibir pedidos
+        function displayPedidos() {
+            const container = document.getElementById('pedidosContainer');
+            
+            let pedidosFiltrados = allPedidos;
+            
+            // Aplicar filtro de data
+            if (currentFilter !== 'todos') {
+                pedidosFiltrados = pedidosFiltrados.filter(pedido => {
+                    const dataRetirada = getCustomField(pedido, 'data_retirada') || '';
+                    const dataFormatada = formatarData(dataRetirada);
+                    return dataFormatada.includes(currentFilter);
+                });
+            }
+            
+            // Aplicar filtro de status de pagamento baseado no estágio do pipeline
+            if (currentPaymentFilter !== 'todos') {
+                pedidosFiltrados = pedidosFiltrados.filter(pedido => {
+                    if (currentPaymentFilter === 'pagos') {
+                        return pedido.pipelineStageId === PIPELINE_STAGES.pago;
+                    } else if (currentPaymentFilter === 'aguardando') {
+                        return pedido.pipelineStageId === PIPELINE_STAGES.aguardando;
+                    }
+                    return true;
+                });
+            }
+
+            if (pedidosFiltrados.length === 0) {
+                let mensagem = 'Nenhum pedido encontrado';
+                let descricao = 'Tente ajustar os filtros para visualizar outros pedidos.';
+                
+                if (currentPaymentFilter === 'pagos') {
+                    mensagem = 'Nenhum pedido pago';
+                    descricao = 'Não há pedidos com PIX confirmado nesta seleção.';
+                } else if (currentPaymentFilter === 'aguardando') {
+                    mensagem = 'Nenhum pedido aguardando';
+                    descricao = 'Não há pedidos aguardando confirmação de pagamento.';
+                }
+                
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📦</div>
+                        <h3>${mensagem}</h3>
+                        <p>${descricao}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = pedidosFiltrados.map(pedido => createPedidoCard(pedido)).join('');
+        }
+
+        // Criar card de pedido
+        function createPedidoCard(pedido) {
+            const numeroPedido = getCustomField(pedido, 'numero_pedido') || 'N/A';
+            const dataRetirada = getCustomField(pedido, 'data_retirada') || 'N/A';
+            const produtos = getCustomField(pedido, 'produtos') || 'Nenhum produto';
+            const valorTotal = getCustomField(pedido, 'valor_total') || 0;
+            const valorEntrada = getCustomField(pedido, 'valor_entrada') || 0;
+            const observacoes = getCustomField(pedido, 'observacoes') || '';
+            
+            // Dados do contato (nested em opportunities)
+            const contact = pedido.contact || {};
+            const telefone = contact.phone || '';
+            const whatsappLink = telefone ? `https://wa.me/${telefone.replace(/\D/g, '')}` : '#';
+            
+            // Verificar se o PIX já foi confirmado (estágio "pago")
+            const pixConfirmado = pedido.pipelineStageId === PIPELINE_STAGES.pago;
+            
+            const produtosList = produtos.split('\n')
+                .filter(p => p.trim())
+                .map(p => `<div class="produto-item">${p}</div>`)
+                .join('');
+
+            return `
+                <div class="pedido-card">
+                    <div class="pedido-header">
+                        <div class="pedido-numero">#${numeroPedido}</div>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <div class="badge badge-data">📅 ${formatarData(dataRetirada)}</div>
+                            ${pixConfirmado ? '<div class="badge badge-confirmado">✅ PIX Confirmado</div>' : ''}
+                        </div>
+                    </div>
+                    
+                    <div class="pedido-info">
+                        <div class="info-row">
+                            <span class="info-icon">👤</span>
+                            <span class="info-value">${contact.name || contact.firstName || 'N/A'}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">📱</span>
+                            <span class="info-value">${contact.phone || 'N/A'}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">📧</span>
+                            <span class="info-value">${contact.email || 'N/A'}</span>
+                        </div>
+                    </div>
+                    
+                    ${observacoes ? `<div class="observacoes">💬 ${observacoes}</div>` : ''}
+                    
+                    <div class="pedido-produtos">
+                        <div class="produtos-title">🍽️ Produtos</div>
+                        ${produtosList}
+                    </div>
+                    
+                    <div class="pedido-valores">
+                        <div class="valor-item">
+                            <div class="valor-label">Valor Total</div>
+                            <div class="valor-amount">${formatarValor(valorTotal)}</div>
+                        </div>
+                        <div class="valor-item">
+                            <div class="valor-label">Entrada (50%)</div>
+                            <div class="valor-amount">${formatarValor(valorEntrada)}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="pedido-actions">
+                        <button class="btn btn-success" 
+                                onclick="confirmarPix('${pedido.id}', '${numeroPedido}')"
+                                ${pixConfirmado ? 'disabled' : ''}>
+                            ${pixConfirmado ? '✔️ PIX Confirmado' : '✅ Confirmar PIX'}
+                        </button>
+                        ${telefone ? `<a href="${whatsappLink}" target="_blank" class="btn btn-secondary">💬 WhatsApp</a>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Confirmar PIX - Move oportunidade para estágio "Pago" e adiciona tag ao contato
+        async function confirmarPix(opportunityId, numeroPedido) {
+            if (!confirm(`Confirmar o PIX do pedido #${numeroPedido}?`)) {
+                return;
+            }
+
+            try {
+                // Buscar a oportunidade atual para pegar dados do contato
+                const opportunity = allPedidos.find(p => p.id === opportunityId);
+                if (!opportunity || !opportunity.contactId) {
+                    throw new Error('Contato não encontrado na oportunidade');
+                }
+                
+                // 1. Atualizar estágio da oportunidade para "Pago" e campo "status_pedido" para "PIX Confirmado"
+                const updateOppResponse = await fetch(
+                    `${API_CONFIG.baseUrl}/opportunities/${opportunityId}`,
+                    {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ 
+                            pipelineStageId: PIPELINE_STAGES.pago,
+                            customFields: [
+                                {
+                                    id: OPPORTUNITY_FIELD_MAP.status_pedido,
+                                    field_value: ["PIX Confirmado"]
+                                }
+                            ]
+                        })
+                    }
+                );
+
+                if (!updateOppResponse.ok) {
+                    throw new Error('Erro ao atualizar estágio da oportunidade');
+                }
+
+                // 2. Buscar tags atuais do contato
+                const getContactResponse = await fetch(
+                    `${API_CONFIG.baseUrl}/contacts/${opportunity.contactId}`
+                );
+
+                if (!getContactResponse.ok) {
+                    throw new Error('Erro ao buscar contato');
+                }
+
+                const contactData = await getContactResponse.json();
+                const currentTags = contactData.contact?.tags || [];
+                
+                // 3. Adicionar tag "pix-confirmado" se não existir
+                if (!currentTags.includes('pix-confirmado')) {
+                    const newTags = [...currentTags, 'pix-confirmado'];
+                    
+                    const updateContactResponse = await fetch(
+                        `${API_CONFIG.baseUrl}/contacts/${opportunity.contactId}`,
+                        {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ tags: newTags })
+                        }
+                    );
+
+                    if (!updateContactResponse.ok) {
+                        console.warn('Aviso: Não foi possível adicionar tag ao contato');
+                    }
+                }
+
+                // 4. 💰 Tracking: PurchaseReal - PIX Confirmado
+                if (opportunity) {
+                    const contact = opportunity.contact || {};
+                    const valorTotal = parseFloat(getCustomField(opportunity, 'valor_total')) || 0;
+                    const valorEntrada = parseFloat(getCustomField(opportunity, 'valor_entrada')) || 0;
+                    const dataRetirada = getCustomField(opportunity, 'data_retirada') || '';
+                    
+                    if (typeof trackPurchaseReal === 'function') {
+                        trackPurchaseReal({
+                            transactionId: numeroPedido,
+                            valorTotal: valorTotal,
+                            valorEntrada: valorEntrada,
+                            customerName: contact.name || contact.firstName || '',
+                            customerPhone: contact.phone || '',
+                            customerEmail: contact.email || '',
+                            dataRetirada: formatarData(dataRetirada)
+                        });
+                    }
+                }
+
+                alert(`✅ PIX confirmado para o pedido #${numeroPedido}!\nAutomação de pagamento recebido será disparada.`);
+                await loadPedidos();
+                
+            } catch (error) {
+                console.error('Erro ao confirmar PIX:', error);
+                alert(`❌ Erro ao confirmar PIX: ${error.message}`);
+            }
+        }
+
+        // Filtrar pedidos por data
+        function filterPedidos(filter) {
+            currentFilter = filter;
+            
+            document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.filter === filter) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            displayPedidos();
+            updateStats();
+        }
+
+        // Filtrar pedidos por status de pagamento
+        function filterByPaymentStatus(filter) {
+            currentPaymentFilter = filter;
+            
+            document.querySelectorAll('.filter-btn[data-payment-filter]').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.paymentFilter === filter) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            displayPedidos();
+            updateStats();
+        }
+
+        // Atualizar estatísticas
+        function updateStats() {
+            let pedidosFiltrados = allPedidos;
+            
+            // Aplicar filtro de data
+            if (currentFilter !== 'todos') {
+                pedidosFiltrados = pedidosFiltrados.filter(pedido => {
+                    const dataRetirada = getCustomField(pedido, 'data_retirada') || '';
+                    const dataFormatada = formatarData(dataRetirada);
+                    return dataFormatada.includes(currentFilter);
+                });
+            }
+            
+            // Aplicar filtro de status de pagamento baseado no estágio do pipeline
+            if (currentPaymentFilter !== 'todos') {
+                pedidosFiltrados = pedidosFiltrados.filter(pedido => {
+                    if (currentPaymentFilter === 'pagos') {
+                        return pedido.pipelineStageId === PIPELINE_STAGES.pago;
+                    } else if (currentPaymentFilter === 'aguardando') {
+                        return pedido.pipelineStageId === PIPELINE_STAGES.aguardando;
+                    }
+                    return true;
+                });
+            }
+
+            const total = pedidosFiltrados.length;
+            const valorTotal = pedidosFiltrados.reduce((sum, pedido) => {
+                return sum + (parseFloat(getCustomField(pedido, 'valor_total')) || 0);
+            }, 0);
+            const valorEntrada = pedidosFiltrados.reduce((sum, pedido) => {
+                return sum + (parseFloat(getCustomField(pedido, 'valor_entrada')) || 0);
+            }, 0);
+
+            document.getElementById('totalPedidos').textContent = total;
+            document.getElementById('valorTotal').textContent = formatarValor(valorTotal);
+            document.getElementById('totalEntrada').textContent = formatarValor(valorEntrada);
+        }
+
+        // Funções auxiliares
+        function getCustomField(opportunity, fieldKey) {
+            // Usar mapeamento de oportunidades
+            const mappedId = OPPORTUNITY_FIELD_MAP[fieldKey];
+            
+            // Buscar no array customFields da oportunidade
+            if (opportunity.customFields && Array.isArray(opportunity.customFields)) {
+                const field = opportunity.customFields.find(f => f.id === mappedId);
+                if (field) {
+                    // Retornar o valor correto baseado no tipo
+                    if (field.type === 'number') return field.fieldValueNumber;
+                    if (field.type === 'string') return field.fieldValueString;
+                    if (field.type === 'date') return field.fieldValueDate;
+                    if (field.type === 'array') return field.fieldValueArray ? field.fieldValueArray.join(', ') : '';
+                }
+            }
+            
+            return null;
+        }
+
+        function formatarValor(valor) {
+            const num = parseFloat(valor) || 0;
+            return `R$ ${num.toFixed(2).replace('.', ',')}`;
+        }
+
+        function formatarData(data) {
+            if (!data) return 'N/A';
+            
+            // Se for um timestamp numérico, converter para data usando UTC
+            if (typeof data === 'number') {
+                const date = new Date(data);
+                const dia = String(date.getUTCDate()).padStart(2, '0');
+                const mes = String(date.getUTCMonth() + 1).padStart(2, '0');
+                return `${dia}/${mes}`;
+            }
+            
+            // Converter para string se não for
+            const dataStr = String(data);
+            
+            // Se já está no formato dd/mm, retornar
+            if (dataStr.includes('/')) return dataStr;
+            
+            // Se está no formato ISO (yyyy-mm-dd), converter
+            if (dataStr.includes('-')) {
+                const [ano, mes, dia] = dataStr.split('-');
+                return `${dia}/${mes}`;
+            }
+            
+            return dataStr;
+        }
+    </script>
+
+    <!-- Tracking System -->
+    <script src="js/tracking.js?v=20251205"></script>
+</body>
+</html>
