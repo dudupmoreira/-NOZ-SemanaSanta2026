@@ -515,7 +515,9 @@ async function finalizarPedido() {
     utm_medium: utmData.utm_medium || 'none',
     utm_campaign: utmData.utm_campaign || '',
     utm_term: utmData.utm_term || '',
-    utm_content: utmData.utm_content || ''
+    utm_content: utmData.utm_content || '',
+    landing_page: utmData.landing_page || window.location.href,
+    first_visit: utmData.first_visit || new Date().toISOString()
   };
 
   try {
