@@ -646,8 +646,8 @@
         // Configuração da API - Agora usa API routes serverless (token protegido)
         const API_CONFIG = {
             baseUrl: '/api',  // API routes serverless do Vercel
-            locationId: 'iuYB2N2aOtvi7dlzJ1sQ',  // mesma conta Homio
-            pipelineId: 'PLACEHOLDER_SS2026_PIPELINE_ID'  // TODO: substituir após criar pipeline no Homio
+            locationId: 'iuYB2N2aOtvi7dlzJ1sQ',
+            pipelineId: 'UXDH7uCV0M5zCAK7WEk1'  // pipeline "Pedidos Semana Santa 2026"
         };
 
         const ADMIN_PASSWORD = 'nozsemanasanta2026';
@@ -664,13 +664,12 @@
         };
 
         // IDs dos estágios do pipeline "Pedidos Semana Santa 2026"
-        // TODO: substituir os PLACEHOLDER_ abaixo após criar o pipeline no Homio
         const PIPELINE_STAGES = {
-            'aguardando': 'PLACEHOLDER_STAGE_AGUARDANDO',
-            'pago': 'PLACEHOLDER_STAGE_PAGO',
-            'pronto': 'PLACEHOLDER_STAGE_PRONTO',
-            'entregue': 'PLACEHOLDER_STAGE_ENTREGUE',
-            'cancelado': 'PLACEHOLDER_STAGE_CANCELADO'
+            'aguardando': '6a2651cb-91b6-403f-be37-e4d777dcdac9',  // Aguardando PIX
+            'pago': 'e1cc970d-baf4-45ed-bb60-79cc4f14ce3a',         // PIX Confirmado
+            'pronto': '68ab1ea7-12d5-47bb-bfb3-f714975ef17c',        // Pedido Pronto
+            'entregue': '75c7a3fa-6ec1-4546-8d0a-faea5ef8ce50',      // Pedido Entregue
+            'cancelado': '31baae50-52a4-43dc-b9c0-de01d8b036a1'      // Cancelado
         };
 
         let allPedidos = [];
