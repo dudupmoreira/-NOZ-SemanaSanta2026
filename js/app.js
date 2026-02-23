@@ -3,7 +3,7 @@
 // ============================================
 const CONFIG = {
   whatsappNumber: "5527997016929",
-  webhookUrl: "PLACEHOLDER_SEMANA_SANTA_WEBHOOK_URL", // TODO: substituir após criar pipeline no Homio
+  webhookUrl: "https://services.leadconnectorhq.com/hooks/iuYB2N2aOtvi7dlzJ1sQ/webhook-trigger/91d1cc9f-a08c-435e-ba37-905a4bf9fdd5",
   googleSheetsUrl: "", // opcional: criar nova planilha para Semana Santa
   pixCNPJ: "33339742000103",
   pixNome: "NOZ COMIDA AFETIVA",
