@@ -142,7 +142,7 @@ Campos disponíveis em `{{inboundWebhookRequest.*}}` no workflow:
 ## Variáveis de Ambiente (Vercel)
 
 ```
-HIGHLEVEL_API_TOKEN=pit-02f3d266-e844-431f-88eb-774c878529f1
+HIGHLEVEL_API_TOKEN=<token da integração privada Homio — configurar no painel Vercel>
 ```
 
 ## Admin Panel
