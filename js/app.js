@@ -107,50 +107,33 @@ function getCartTotal() {
 // ============================================
 function renderCardapio() {
   const container = document.getElementById('cardapio');
-  let html = '';
-
-  for (const [category, products] of Object.entries(cardapio)) {
-    html += `
-      <section class="category-section" id="${category}">
-        <h3>${categoryNames[category]}</h3>
-        <div class="products-grid">
-          ${products.map(product => renderProductCard(product, category)).join('')}
-        </div>
-      </section>
-    `;
-  }
+  let html = '<div class="pratos-grid">';
+  html += cardapio.pratos.map(product => renderProductCard(product)).join('');
+  html += '</div>';
+  html += `
+    <div class="atencao-card">
+      <p>As receitas não sofrem alterações. Cada ingrediente foi escolhido com propósito e faz parte do resultado final do prato.</p>
+    </div>
+  `;
 
   container.innerHTML = html;
 }
 
-function renderProductCard(product, category) {
-  const imageHtml = product.imagem 
-    ? `<img src="${product.imagem}" alt="${product.nome}" class="product-image" onclick="openImageZoom('${product.imagem}')">`
-    : `<div class="product-image-placeholder">
-        <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M8.1 13.34L10.93 10.51L13.76 13.34L18.76 8.34L20.17 9.75L13.76 16.16L10.93 13.34L7.27 17H20V19H4V6H6V14.27L8.1 13.34M6 3V1H8V3H6M11 3V1H13V3H11M16 3V1H18V3H16Z"/>
-        </svg>
-      </div>`;
-
+function renderProductCard(product) {
   return `
-    <div class="product-card" data-product-id="${product.id}">
-      <div class="product-image-container">
-        ${imageHtml}
-      </div>
-      <div class="product-info">
-        <h4 class="product-name">${product.nome}</h4>
-        <p class="product-description">${product.descricao}</p>
-        <div class="product-options">
-          ${product.opcoes.map((opcao, index) => `
-            <div class="product-option">
-              <div class="option-info">
-                <span class="option-weight">${opcao.peso}</span>
-                <span class="option-price">R$ ${formatPrice(opcao.preco)}</span>
-              </div>
-              ${renderAddButton(product.id, index, opcao)}
-            </div>
-          `).join('')}
-        </div>
+    <div class="prato-card reveal" data-product-id="${product.id}">
+      <span class="prato-number">${product.numero}</span>
+      <h3 class="prato-name">${product.nome}<br>${product.nomeComplemento}</h3>
+      <p class="prato-desc">${product.descricaoMarketing}</p>
+      <span class="prato-origem">${product.origem}</span>
+      <div class="prato-opcoes">
+        ${product.opcoes.map((opcao, index) => `
+          <div class="prato-opcao">
+            <span class="opcao-peso">${opcao.peso}</span>
+            <span class="opcao-preco">R$ ${formatPrice(opcao.preco)}</span>
+            ${renderAddButton(product.id, index, opcao)}
+          </div>
+        `).join('')}
       </div>
     </div>
   `;
@@ -923,6 +906,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Se não houver pedido compartilhado, inicializar normalmente
   if (!hasSharedOrder) {
     renderCardapio();
-    setupCategoryNav();
+
+    // Scroll reveal para .reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   }
 });
