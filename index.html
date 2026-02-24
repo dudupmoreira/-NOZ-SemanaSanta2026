@@ -56,7 +56,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=20260224-3">
+  <link rel="stylesheet" href="css/styles.css?v=20260224-4">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -72,7 +72,7 @@
     <header class="header">
       <div class="header-content">
         <img src="imagens/logo-noz-vinho.png" alt="Noz Comida Afetiva" class="logo-header">
-        <button class="header-cta" onclick="openCart()">Fazer encomenda</button>
+        <button class="header-cta" onclick="smartCta()">Fazer encomenda</button>
       </div>
     </header>
 
@@ -87,7 +87,7 @@
         <span class="section-label">NOZ — Vitória, ES</span>
         <h1 class="intro-title">Semana Santa<br><em>no Noz.</em></h1>
         <p class="intro-sub">Cada detalhe tem origem.</p>
-        <button class="intro-cta" onclick="openCart()">Fazer minha encomenda</button>
+        <button class="intro-cta" onclick="smartCta()">Fazer minha encomenda</button>
       </div>
     </section>
 
@@ -103,7 +103,7 @@
     </section>
 
     <!-- Cardápio -->
-    <section class="section-cardapio">
+    <section id="section-cardapio" class="section-cardapio">
       <div class="cardapio-header">
         <span class="section-label">Cardápio de encomendas</span>
         <h2>Pratos que<br><em>carregam história</em></h2>
@@ -137,28 +137,28 @@
 
     <!-- Datas -->
     <section class="section-datas">
-      <span class="section-label">Quando encomendar</span>
-      <h2>Escolha sua data<br><em>de retirada</em></h2>
-      <p class="datas-intro">Garanta com antecedência. Os pedidos se esgotam.</p>
-      <div class="datas-grid">
-        <div class="data-item">
-          <span class="data-dia">03</span>
-          <span class="data-mes">Abril</span>
-          <span class="data-nome">Quinta-feira Santa</span>
+      <div class="section-datas-inner">
+        <span class="section-label">Retirada disponível em</span>
+        <div class="datas-grid">
+          <div class="data-item">
+            <span class="data-dia">03</span>
+            <span class="data-mes">Abril</span>
+            <span class="data-nome">Quinta-feira Santa</span>
+          </div>
+          <div class="data-item">
+            <span class="data-dia">04</span>
+            <span class="data-mes">Abril</span>
+            <span class="data-nome">Sexta-feira Santa</span>
+          </div>
+          <div class="data-item">
+            <span class="data-dia">05</span>
+            <span class="data-mes">Abril</span>
+            <span class="data-nome">Sábado de Aleluia</span>
+          </div>
         </div>
-        <div class="data-item">
-          <span class="data-dia">04</span>
-          <span class="data-mes">Abril</span>
-          <span class="data-nome">Sexta-feira Santa</span>
+        <div class="escassez-box">
+          <p>Pedidos encerram no dia <strong>30 de março</strong>. As encomendas são limitadas e costumam esgotar antes do prazo.</p>
         </div>
-        <div class="data-item">
-          <span class="data-dia">05</span>
-          <span class="data-mes">Abril</span>
-          <span class="data-nome">Sábado de Aleluia</span>
-        </div>
-      </div>
-      <div class="escassez-box">
-        <p>Pedidos encerram no dia <strong>30 de março</strong>. As encomendas são limitadas e costumam esgotar antes do prazo.</p>
       </div>
     </section>
 
@@ -349,9 +349,9 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/cardapio.js?v=20260224-3"></script>
-  <script src="js/tracking.js?v=20260224-3"></script>
-  <script src="js/app.js?v=20260224-3"></script>
+  <script src="js/cardapio.js?v=20260224-4"></script>
+  <script src="js/tracking.js?v=20260224-4"></script>
+  <script src="js/app.js?v=20260224-4"></script>
   
   <!-- Inicializar captura de UTMs -->
   <script>
