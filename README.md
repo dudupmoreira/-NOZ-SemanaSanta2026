@@ -45,6 +45,11 @@ Baseado em: [-NOZ-Ceia2025](https://github.com/dudupmoreira/-NOZ-Ceia2025)
 - [ ] **Fotos reais** — substituir KVs de IA pelas fotos reais dos pratos (~25/02)
 - [ ] **Teste ponta a ponta** — fazer pedido real no site e validar fluxo completo
 
+### 🔒 Segurança
+
+- Token rotacionado em 24/02/2026 (token antigo exposto no README via GitGuardian, revogado imediatamente)
+- Valor do token fica **somente** na Vercel env `HIGHLEVEL_API_TOKEN` — nunca commitar em arquivos
+
 ---
 
 ## Estrutura do Projeto
