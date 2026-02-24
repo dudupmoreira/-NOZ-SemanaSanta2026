@@ -45,6 +45,19 @@ const cardapio = {
         { peso: "500g", preco: 130 },
         { peso: "1kg",  preco: 240 }
       ]
+    },
+    {
+      id: "arroz",
+      numero: "",
+      nome: "Acrescentar",
+      nomeComplemento: "Arroz",
+      descricao: "arroz branco",
+      descricaoMarketing: "Arroz branco soltinho para acompanhar os pratos da Semana Santa.",
+      origem: "Acompanhamento",
+      imagem: null,
+      opcoes: [
+        { peso: "Porção", preco: 18 }
+      ]
     }
   ]
 };
