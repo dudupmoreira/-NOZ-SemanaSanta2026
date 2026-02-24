@@ -108,7 +108,10 @@ function getCartTotal() {
 function renderCardapio() {
   const container = document.getElementById('cardapio');
   let html = '<div class="pratos-grid">';
-  html += cardapio.pratos.map(product => renderProductCard(product)).join('');
+  html += cardapio.pratos
+    .filter(p => p.id !== 'arroz')
+    .map(product => renderProductCard(product))
+    .join('');
   html += '</div>';
   html += `
     <div class="atencao-card">
@@ -120,6 +123,22 @@ function renderCardapio() {
 }
 
 function renderProductCard(product) {
+  const arrozProduct = cardapio.pratos.find(p => p.id === 'arroz');
+  const arrozOpcao = arrozProduct ? arrozProduct.opcoes[0] : null;
+  const productInCart = cart.some(item => item.productId === product.id);
+
+  const addonHtml = (productInCart && arrozOpcao) ? `
+    <div class="prato-addon">
+      <div class="addon-row">
+        <div class="addon-info">
+          <span class="addon-nome">Acrescentar arroz</span>
+          <span class="addon-preco">R$ ${formatPrice(arrozOpcao.preco)}</span>
+        </div>
+        ${renderAddButton('arroz', 0, arrozOpcao)}
+      </div>
+    </div>
+  ` : '';
+
   return `
     <div class="prato-card" data-product-id="${product.id}">
       <div class="prato-img-placeholder">
@@ -142,6 +161,7 @@ function renderProductCard(product) {
           `).join('')}
         </div>
       </div>
+      ${addonHtml}
     </div>
   `;
 }

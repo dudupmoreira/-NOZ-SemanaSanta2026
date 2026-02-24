@@ -362,6 +362,42 @@ body {
   text-align: center;
 }
 
+/* Add-on arroz (inline no card) */
+.prato-addon {
+  padding: 0.875rem 1.5rem 1rem;
+  border-top: 1px solid var(--borda);
+  background: var(--bg-section);
+  border-radius: 0 0 12px 12px;
+}
+
+.addon-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.addon-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.addon-nome {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-medio);
+  font-weight: 500;
+}
+
+.addon-preco {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-dark);
+}
+
 /* Atenção card */
 .atencao-card {
   max-width: 1100px;
