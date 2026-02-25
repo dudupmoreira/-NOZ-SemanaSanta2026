@@ -98,10 +98,17 @@ body {
    HERO
 ============================================ */
 .hero {
+  padding: 0 1.5rem;
+  background: var(--bg-principal);
+}
+
+.hero-inner {
   position: relative;
-  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  border-radius: 12px;
 }
 
 .hero-bg {
