@@ -57,7 +57,7 @@ body {
   background: rgba(248, 245, 239, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(44, 34, 24, 0.08);
+  border-bottom: none;
 }
 
 .header-content {
@@ -710,21 +710,44 @@ body {
   text-align: center;
 }
 
-.footer-logo {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: #F5F0E8;
-  margin-bottom: 0.75rem;
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  margin-bottom: 2rem;
+  opacity: 0.9;
 }
 
-.footer p {
-  font-size: 12px;
-  letter-spacing: 1.5px;
+.footer-info {
+  margin-bottom: 2rem;
+}
+
+.footer-info p {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  color: #F5F0E8;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.footer-info a {
+  color: #F5F0E8;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-info a:hover {
+  opacity: 0.7;
+}
+
+.footer-copy {
+  font-size: 11px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: #6B5E4E;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ============================================
