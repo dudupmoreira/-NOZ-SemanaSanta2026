@@ -99,9 +99,8 @@ body {
 ============================================ */
 .hero {
   position: relative;
-  height: 55vw;
-  min-height: 200px;
-  max-height: 72vh;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
