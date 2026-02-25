@@ -79,11 +79,17 @@ function formatPrice(value) {
 
 function showToast(message) {
   const toast = document.getElementById('toast');
-  toast.textContent = message;
+  toast.innerHTML = message;
   toast.classList.add('visible');
-  setTimeout(() => {
+
+  // Clear any existing timeout to avoid glitching
+  if (window.toastTimeout) {
+    clearTimeout(window.toastTimeout);
+  }
+
+  window.toastTimeout = setTimeout(() => {
     toast.classList.remove('visible');
-  }, 2000);
+  }, 2500);
 }
 
 function findProduct(productId) {
@@ -168,7 +174,7 @@ function renderProductCard(product) {
 
 function renderAddButton(productId, optionIndex, opcao) {
   const cartItem = cart.find(item => item.productId === productId && item.optionIndex === optionIndex);
-  
+
   if (cartItem) {
     return `
       <div class="quantity-control">
@@ -178,7 +184,7 @@ function renderAddButton(productId, optionIndex, opcao) {
       </div>
     `;
   }
-  
+
   return `
     <button class="add-btn" onclick="addToCart('${productId}', ${optionIndex})">+</button>
   `;
@@ -189,7 +195,7 @@ function renderAddButton(productId, optionIndex, opcao) {
 // ============================================
 function addToCart(productId, optionIndex) {
   const existingItem = cart.find(item => item.productId === productId && item.optionIndex === optionIndex);
-  
+
   if (existingItem) {
     existingItem.quantity++;
   } else {
@@ -201,11 +207,20 @@ function addToCart(productId, optionIndex) {
   }
 
   updateCartUI();
-  showToast('Item adicionado!');
 
-  // Tracking: AddToCart
   const product = findProduct(productId);
   const opcao = product.opcoes[optionIndex];
+  showToast(`<strong>${product.nome}</strong> adicionado!`);
+
+  // Pulse animation on cart float
+  const cartFloat = document.getElementById('cartFloat');
+  if (cartFloat) {
+    cartFloat.classList.remove('pulse-animation');
+    void cartFloat.offsetWidth; // trigger reflow
+    cartFloat.classList.add('pulse-animation');
+  }
+
+  // Tracking: AddToCart
   trackAddToCart({
     id: productId,
     nome: product.nome,
@@ -218,10 +233,10 @@ function addToCart(productId, optionIndex) {
 
 function updateQuantity(productId, optionIndex, delta) {
   const itemIndex = cart.findIndex(item => item.productId === productId && item.optionIndex === optionIndex);
-  
+
   if (itemIndex > -1) {
     cart[itemIndex].quantity += delta;
-    
+
     if (cart[itemIndex].quantity <= 0) {
       cart.splice(itemIndex, 1);
     }
@@ -233,11 +248,11 @@ function updateQuantity(productId, optionIndex, delta) {
 function removeFromCart(productId, optionIndex) {
   // Capturar dados antes de remover para o tracking
   const itemToRemove = cart.find(item => item.productId === productId && item.optionIndex === optionIndex);
-  
+
   if (itemToRemove) {
     const product = findProduct(productId);
     const opcao = product.opcoes[optionIndex];
-    
+
     // Tracking: RemoveFromCart
     trackRemoveFromCart({
       id: productId,
@@ -256,10 +271,10 @@ function removeFromCart(productId, optionIndex) {
 function updateCartUI() {
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
   const total = getCartTotal();
-  
+
   document.getElementById('cartCount').textContent = count;
   document.getElementById('cartTotal').textContent = `R$ ${formatPrice(total)}`;
-  
+
   const cartFloat = document.getElementById('cartFloat');
   if (count > 0) {
     cartFloat.classList.add('visible');
@@ -268,7 +283,7 @@ function updateCartUI() {
   }
 
   renderCardapio();
-  
+
   if (document.getElementById('cartModal').classList.contains('visible')) {
     renderCartBody();
     renderCartFooter();
@@ -337,7 +352,7 @@ function updateCustomerData(field, value) {
   if (field === 'nome' && value && value.length > 3) {
     const total = getCartTotal();
     const numItens = cart.reduce((sum, item) => sum + item.quantity, 0);
-    
+
     trackAddPaymentInfo({
       valorTotal: total,
       numItens: numItens,
@@ -348,7 +363,7 @@ function updateCustomerData(field, value) {
 
 function renderCartBody() {
   const body = document.getElementById('cartBody');
-  
+
   if (cart.length === 0) {
     body.innerHTML = `
       <div class="cart-empty">
@@ -491,7 +506,7 @@ async function finalizarPedido() {
   btn.disabled = true;
   loadingSpan.style.display = 'inline';
   textSpan.textContent = 'Processando...';
-  
+
   const orderNumber = `NOZ-SS26-${String(Date.now()).slice(-4)}`;
   const total = getCartTotal();
   const entrada = total / 2;
@@ -502,7 +517,7 @@ async function finalizarPedido() {
   const pedido = {
     numero_pedido: orderNumber,
     data_retirada: selectedDate === '03/04' ? '2026-04-03' :
-                   selectedDate === '04/04' ? '2026-04-04' : '2026-04-05',
+      selectedDate === '04/04' ? '2026-04-04' : '2026-04-05',
     nome: customerData.nome,
     telefone: customerData.telefone.replace(/\D/g, ''),
     email: customerData.email,
@@ -670,7 +685,7 @@ function showConfirmationPage(pedido) {
       orderNumber: pedido.numero_pedido,
       orderValue: total
     });
-    
+
     window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${mensagemWhatsApp}`, '_blank');
   };
 
@@ -692,14 +707,14 @@ function showConfirmationPage(pedido) {
     e: entrada,
     cliente: pedido.nome
   };
-  
+
   const pedidoBase64 = btoa(encodeURIComponent(JSON.stringify(pedidoCompact)));
   history.pushState({}, '', `?pedido=${pedidoBase64}`);
-  
+
   // Transição suave
   const mainPage = document.getElementById('mainPage');
   const confirmPage = document.getElementById('confirmationPage');
-  
+
   mainPage.style.opacity = '0';
   setTimeout(() => {
     mainPage.style.display = 'none';
@@ -709,7 +724,7 @@ function showConfirmationPage(pedido) {
       confirmPage.style.opacity = '1';
     }, 50);
   }, 300);
-  
+
   closeCart();
   window.scrollTo(0, 0);
 }
@@ -762,15 +777,15 @@ function setupCategoryNav() {
   const categoriesNav = document.querySelector('.categories');
   const mainContent = document.querySelector('.main-content');
   const mobileSelect = document.getElementById('categorySelect');
-  
+
   // Navegação desktop
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const category = btn.dataset.category;
-      
+
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      
+
       scrollToCategory(category);
     });
   });
@@ -816,7 +831,7 @@ function setupCategoryNav() {
     if (mainContent) {
       const mainContentBottom = mainContent.offsetTop + mainContent.offsetHeight;
       const currentScroll = window.scrollY + window.innerHeight;
-      
+
       if (categoriesNav) {
         if (currentScroll > mainContentBottom + 100) {
           categoriesNav.classList.add('hidden');
@@ -834,7 +849,7 @@ function setupCategoryNav() {
 function checkUrlForOrder() {
   const urlParams = new URLSearchParams(window.location.search);
   const pedidoParam = urlParams.get('pedido');
-  
+
   if (pedidoParam) {
     try {
       const pedidoJson = decodeURIComponent(atob(pedidoParam));
@@ -904,7 +919,7 @@ function showSharedOrderPage(pedidoData) {
   qrContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(pixCode)}" alt="QR Code PIX">`;
 
   // Configurar botão WhatsApp
-  const itensResumo = items.map(item => 
+  const itensResumo = items.map(item =>
     `• ${item.qtd}x ${item.nome} (${item.peso})`
   ).join('\n');
 
@@ -917,7 +932,7 @@ function showSharedOrderPage(pedidoData) {
     `*Nome:* ${clienteName}\n\n` +
     `Segue o comprovante do PIX em anexo.`
   );
-  
+
   document.getElementById('whatsappBtn').onclick = () => {
     window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${mensagemWhatsApp}`, '_blank');
   };
@@ -925,7 +940,7 @@ function showSharedOrderPage(pedidoData) {
   // Mostrar página de confirmação
   const mainPage = document.getElementById('mainPage');
   const confirmPage = document.getElementById('confirmationPage');
-  
+
   mainPage.style.display = 'none';
   confirmPage.classList.add('visible');
   confirmPage.style.opacity = '1';
@@ -937,7 +952,7 @@ function showSharedOrderPage(pedidoData) {
 document.addEventListener('DOMContentLoaded', () => {
   // Verificar se há um pedido compartilhado na URL
   const hasSharedOrder = checkUrlForOrder();
-  
+
   // Se não houver pedido compartilhado, inicializar normalmente
   if (!hasSharedOrder) {
     renderCardapio();

@@ -3,26 +3,26 @@
 ============================================ */
 :root {
   /* Semana Santa 2026 — Tema Claro */
-  --bg-principal:  #F8F5EF;
-  --bg-card:       #FFFFFF;
-  --bg-section:    #F2EDE3;
-  --text-dark:     #2C2218;
-  --text-medio:    #6B5E4E;
-  --text-leve:     #9A8C7E;
-  --sage:          #6B8C5C;
-  --sage-hover:    #5A7A4B;
-  --sage-claro:    #E8F0E3;
-  --borda:         rgba(44, 34, 24, 0.12);
-  --borda-sage:    rgba(107, 140, 92, 0.3);
+  --bg-principal: #F8F5EF;
+  --bg-card: #FFFFFF;
+  --bg-section: #F2EDE3;
+  --text-dark: #2C2218;
+  --text-medio: #6B5E4E;
+  --text-leve: #9A8C7E;
+  --sage: #6B8C5C;
+  --sage-hover: #5A7A4B;
+  --sage-claro: #E8F0E3;
+  --borda: rgba(44, 34, 24, 0.12);
+  --borda-sage: rgba(107, 140, 92, 0.3);
 
   /* Tipografia */
   --font-display: 'Cormorant Garamond', serif;
-  --font-body:    'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Sombras */
-  --shadow-sm: 0 1px 4px rgba(44,34,24,0.06);
-  --shadow-md: 0 4px 16px rgba(44,34,24,0.1);
-  --shadow-lg: 0 8px 32px rgba(44,34,24,0.14);
+  --shadow-sm: 0 1px 4px rgba(44, 34, 24, 0.06);
+  --shadow-md: 0 4px 16px rgba(44, 34, 24, 0.1);
+  --shadow-lg: 0 8px 32px rgba(44, 34, 24, 0.14);
 
   /* Transições */
   --transition: all 0.25s ease;
@@ -269,12 +269,12 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--borda);
-  transition: var(--transition);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .prato-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-lg);
 }
 
 .prato-img-placeholder {
@@ -429,14 +429,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, color 0.2s ease;
   line-height: 1;
   flex-shrink: 0;
+}
+
+.add-btn:active {
+  transform: scale(0.9);
 }
 
 .add-btn:hover {
   background: var(--sage);
   color: white;
+  transform: scale(1.1);
 }
 
 /* Controle de quantidade */
@@ -459,13 +464,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, color 0.2s ease;
   line-height: 1;
+}
+
+.quantity-control button:active {
+  transform: scale(0.85);
 }
 
 .quantity-control button:hover {
   background: var(--sage);
   color: white;
+  transform: scale(1.1);
 }
 
 .quantity-control span {
@@ -509,17 +519,28 @@ body {
 }
 
 .datas-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: row;
   gap: 1px;
   background: var(--borda);
   border: 1px solid var(--borda);
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: auto;
   margin-bottom: 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.datas-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .data-item {
+  flex: 1;
+  min-width: 130px;
+  /* Crucial for swipe */
+  scroll-snap-align: start;
   background: var(--bg-card);
   padding: 1.25rem 0.75rem;
   text-align: center;
@@ -590,7 +611,9 @@ body {
 }
 
 @media (max-width: 480px) {
-  .info-items { grid-template-columns: 1fr; }
+  .info-items {
+    grid-template-columns: 1fr;
+  }
 }
 
 .info-item {
@@ -707,7 +730,7 @@ body {
   right: 0;
   background: #2C2218;
   padding: 1rem 1.5rem;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(100%);
   transition: var(--transition);
   z-index: 1000;
@@ -742,6 +765,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .cart-icon svg {
@@ -809,7 +833,8 @@ body {
 
 .cart-btn:hover {
   background: var(--sage-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(107, 140, 92, 0.3);
 }
 
 .cart-btn:active {
@@ -829,7 +854,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
@@ -1025,10 +1050,26 @@ body {
 .date-picker-section .date-options {
   display: flex;
   gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  /* Space for scrollbar */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+  scroll-snap-type: x mandatory;
+}
+
+.date-picker-section .date-options::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
 }
 
 .date-option {
   flex: 1;
+  min-width: 140px;
+  /* Essential for mobile swipe */
+  scroll-snap-align: start;
   padding: 1rem 0.75rem;
   border: 1.5px solid var(--borda);
   border-radius: 8px;
@@ -1173,7 +1214,8 @@ body {
 
 .checkout-btn:hover:not(:disabled) {
   background: var(--sage-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(107, 140, 92, 0.3);
 }
 
 .checkout-btn:active:not(:disabled) {
@@ -1215,7 +1257,7 @@ body {
 .confirmation-icon {
   width: 72px;
   height: 72px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1407,7 +1449,9 @@ body {
 }
 
 /* Próximos passos */
-.next-steps { counter-reset: step; }
+.next-steps {
+  counter-reset: step;
+}
 
 .step {
   display: flex;
@@ -1482,8 +1526,11 @@ body {
 ============================================ */
 .image-zoom-overlay {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.92);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
   z-index: 3000;
   display: none;
   align-items: center;
@@ -1531,14 +1578,41 @@ body {
    ANIMAÇÕES
 ============================================ */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cartPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation .cart-icon {
+  animation: cartPulse 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: rgba(107, 140, 92, 0.4);
+  /* Highlight state */
+  border-color: var(--sage);
 }
 
 /* ============================================
    RESPONSIVIDADE
 ============================================ */
 @media (min-width: 768px) {
+
   .section-origem,
   .section-cardapio,
   .section-datas,
@@ -1556,8 +1630,14 @@ body {
 }
 
 @media (max-width: 600px) {
+
+  /* Allow swiping in datas-grid instead of stacking vertically */
   .datas-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1px;
+    padding-bottom: 0.5rem;
   }
 
   .cart-float {
