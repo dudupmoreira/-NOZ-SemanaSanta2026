@@ -4,7 +4,7 @@
 const CONFIG = {
   whatsappNumber: "5527997016929",
   webhookUrl: "https://services.leadconnectorhq.com/hooks/iuYB2N2aOtvi7dlzJ1sQ/webhook-trigger/91d1cc9f-a08c-435e-ba37-905a4bf9fdd5",
-  googleSheetsUrl: "", // opcional: criar nova planilha para Semana Santa
+  googleSheetsUrl: "https://script.google.com/macros/s/AKfycbyet9wwDASByZhr78_80yKrB4s9XxmrJ9YlvUjirwECRmXIp7PyVlgXVu3OQL4kjhqQ/exec", // webhook para Semana Santa
   pixCNPJ: "33339742000103",
   pixNome: "NOZ COMIDA AFETIVA",
   pixCidade: "VITORIA",
