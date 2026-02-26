@@ -145,13 +145,17 @@ function renderProductCard(product) {
     </div>
   ` : '';
 
-  return `
-    <div class="prato-card" data-product-id="${product.id}">
-      <div class="prato-img-placeholder">
+  const imageHtml = product.imagem
+    ? `<img src="${product.imagem}" alt="${product.nome}" class="prato-img" onclick="openImageZoom('${product.imagem}')">`
+    : `<div class="prato-img-placeholder">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
           <path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0 0-1.37-1.03-5.52-1.03S5 14.99 5 14.99v-2.93l11.03.01v2.92z"/>
         </svg>
-      </div>
+      </div>`;
+
+  return `
+    <div class="prato-card" data-product-id="${product.id}">
+      ${imageHtml}
       <div class="prato-body">
         <span class="prato-number">${product.numero}</span>
         <h3 class="prato-name">${product.nome}<br>${product.nomeComplemento}</h3>

@@ -284,6 +284,20 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
+.prato-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.prato-card:hover .prato-img {
+  transform: scale(1.05);
+  /* Slight zoom on card hover */
+}
+
 .prato-img-placeholder {
   width: 100%;
   height: 220px;
