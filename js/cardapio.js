@@ -10,7 +10,7 @@ const cardapio = {
       nome: "Torta Capixaba",
       nomeComplemento: "Autoral",
       descricao: "Camarão VM, lascas de bacalhau gadus morhua, siri desfiado e palmito fresco.",
-      descricaoMarketing: "A receita que define o NÓZ. Camarões grandes, lascas de lombo de bacalhau e camarão VG finalizando o prato. Construída ao longo do tempo — a versão que você vai provar é a que ficou.",
+      descricaoMarketing: "Camarão VM, lascas de bacalhau gadus morhua, siri desfiado e palmito fresco.",
       origem: "Receita autoral · Desde o início do NÓZ",
       imagem: "imagens/torta-capixaba-temp.jpg",
       opcoes: [
@@ -24,7 +24,7 @@ const cardapio = {
       nome: "Torta de",
       nomeComplemento: "Bacalhau",
       descricao: "Lascas de bacalhau gadus morhua e palmito fresco.",
-      descricaoMarketing: "Ingredientes frescos e de alta qualidade, selecionados com critério. Uma torta que respeita a tradição do bacalhau na mesa capixaba de Semana Santa.",
+      descricaoMarketing: "Lascas de bacalhau gadus morhua e palmito fresco.",
       origem: "Ingredientes selecionados · Qualidade premium",
       imagem: "imagens/torta-bacalhau-temp.jpg",
       opcoes: [
@@ -38,7 +38,7 @@ const cardapio = {
       nome: "Bacalhau",
       nomeComplemento: "com Natas",
       descricao: "Lascas de bacalhau gadus morhua, batata em cubos, natas e queijo parmesão.",
-      descricaoMarketing: "A versão clássica e reconfortante, feita com o cuidado que o NÓZ coloca em cada prato. Para quem quer a Páscoa do jeito que ela foi feita para ser.",
+      descricaoMarketing: "Lascas de bacalhau gadus morhua, batata em cubos, natas e queijo parmesão.",
       origem: "Preparo artesanal · Acabamento impecável",
       imagem: "imagens/bacalhau-natas-temp.jpg",
       opcoes: [
