@@ -8,11 +8,11 @@ const cardapio = {
       id: "torta-capixaba",
       numero: "01",
       nome: "Torta Capixaba",
-      nomeComplemento: "Autoral",
+      nomeComplemento: "",
       descricao: "Camarão VM, lascas de bacalhau gadus morhua, siri desfiado e palmito fresco.",
       descricaoMarketing: "Camarão VM, lascas de bacalhau gadus morhua, siri desfiado e palmito fresco.",
       origem: "Receita autoral · Desde o início do NÓZ",
-      imagem: "imagens/torta-capixaba-temp.jpg",
+      imagem: "imagens/torta-capixaba.webp",
       opcoes: [
         { peso: "500g", preco: 140 },
         { peso: "1kg", preco: 250 }
@@ -26,7 +26,7 @@ const cardapio = {
       descricao: "Lascas de bacalhau gadus morhua e palmito fresco.",
       descricaoMarketing: "Lascas de bacalhau gadus morhua e palmito fresco.",
       origem: "Ingredientes selecionados · Qualidade premium",
-      imagem: "imagens/torta-bacalhau-temp.jpg",
+      imagem: "imagens/torta-bacalhau.webp",
       opcoes: [
         { peso: "500g", preco: 130 },
         { peso: "1kg", preco: 240 }
@@ -40,7 +40,7 @@ const cardapio = {
       descricao: "Lascas de bacalhau gadus morhua, batata em cubos, natas e queijo parmesão.",
       descricaoMarketing: "Lascas de bacalhau gadus morhua, batata em cubos, natas e queijo parmesão.",
       origem: "Preparo artesanal · Acabamento impecável",
-      imagem: "imagens/bacalhau-natas-temp.jpg",
+      imagem: "imagens/bacalhau-natas.webp",
       opcoes: [
         { peso: "500g", preco: 130 },
         { peso: "1kg", preco: 240 }
@@ -56,7 +56,7 @@ const cardapio = {
       origem: "Acompanhamento",
       imagem: null,
       opcoes: [
-        { peso: "Porção", preco: 18 }
+        { peso: "500g", preco: 20 }
       ]
     }
   ]

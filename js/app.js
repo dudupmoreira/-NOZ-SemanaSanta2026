@@ -17,7 +17,7 @@ const CONFIG = {
 // ESTADO DA APLICAÇÃO
 // ============================================
 let cart = [];
-let selectedDate = "03/04";
+let selectedDate = "02/04";
 let customerData = {
   nome: "",
   telefone: "",
@@ -160,7 +160,6 @@ function renderProductCard(product) {
         <span class="prato-number">${product.numero}</span>
         <h3 class="prato-name">${product.nome}<br>${product.nomeComplemento}</h3>
         <p class="prato-desc">${product.descricaoMarketing}</p>
-        <span class="prato-origem">${product.origem}</span>
         <div class="prato-opcoes">
           ${product.opcoes.map((opcao, index) => `
             <div class="prato-opcao">
@@ -392,17 +391,21 @@ function renderCartBody() {
         Data de Retirada
       </label>
       <div class="date-options">
+        <div class="date-option ${selectedDate === '02/04' ? 'selected' : ''}" onclick="selectDate('02/04')">
+          <strong>02/04</strong>
+          <span>Quinta</span>
+        </div>
         <div class="date-option ${selectedDate === '03/04' ? 'selected' : ''}" onclick="selectDate('03/04')">
           <strong>03/04</strong>
-          <span>Quinta-feira Santa</span>
+          <span>Sexta</span>
         </div>
         <div class="date-option ${selectedDate === '04/04' ? 'selected' : ''}" onclick="selectDate('04/04')">
           <strong>04/04</strong>
-          <span>Sexta-feira Santa</span>
+          <span>Sábado</span>
         </div>
         <div class="date-option ${selectedDate === '05/04' ? 'selected' : ''}" onclick="selectDate('05/04')">
           <strong>05/04</strong>
-          <span>Sábado de Aleluia</span>
+          <span>Domingo</span>
         </div>
       </div>
     </div>
@@ -520,8 +523,9 @@ async function finalizarPedido() {
 
   const pedido = {
     numero_pedido: orderNumber,
-    data_retirada: selectedDate === '03/04' ? '2026-04-03' :
-      selectedDate === '04/04' ? '2026-04-04' : '2026-04-05',
+    data_retirada: selectedDate === '02/04' ? '2026-04-02' :
+      selectedDate === '03/04' ? '2026-04-03' :
+        selectedDate === '04/04' ? '2026-04-04' : '2026-04-05',
     nome: customerData.nome,
     telefone: customerData.telefone.replace(/\D/g, ''),
     email: customerData.email,

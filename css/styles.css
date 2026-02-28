@@ -115,7 +115,7 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../imagens/kv-hero.webp');
+  background-image: url('../imagens/banner-site.webp');
   background-size: cover;
   background-position: center center;
 }
