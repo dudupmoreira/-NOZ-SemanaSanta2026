@@ -157,7 +157,7 @@ function renderProductCard(product) {
     <div class="prato-card" data-product-id="${product.id}">
       ${imageHtml}
       <div class="prato-body">
-        <h3 class="prato-name">${product.nome}<br>${product.nomeComplemento}</h3>
+        <h3 class="prato-name">${product.nome} ${product.nomeComplemento}</h3>
         <p class="prato-desc">${product.descricaoMarketing}</p>
         <div class="prato-opcoes">
           ${product.opcoes.map((opcao, index) => `
