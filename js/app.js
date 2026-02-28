@@ -137,7 +137,7 @@ function renderProductCard(product) {
     <div class="prato-addon">
       <div class="addon-row">
         <div class="addon-info">
-          <span class="addon-nome">Acrescentar arroz</span>
+          <span class="addon-nome">Acrescentar arroz (500g)</span>
           <span class="addon-preco">R$ ${formatPrice(arrozOpcao.preco)}</span>
         </div>
         ${renderAddButton('arroz', 0, arrozOpcao)}
@@ -157,7 +157,6 @@ function renderProductCard(product) {
     <div class="prato-card" data-product-id="${product.id}">
       ${imageHtml}
       <div class="prato-body">
-        <span class="prato-number">${product.numero}</span>
         <h3 class="prato-name">${product.nome}<br>${product.nomeComplemento}</h3>
         <p class="prato-desc">${product.descricaoMarketing}</p>
         <div class="prato-opcoes">
