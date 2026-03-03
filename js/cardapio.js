@@ -9,8 +9,8 @@ const cardapio = {
       numero: "01",
       nome: "Torta Capixaba",
       nomeComplemento: "",
-      descricao: "Camarão VM, lascas de bacalhau gadus morhua, siri desfiado e palmito fresco.",
-      descricaoMarketing: "Camarão VM, lascas de bacalhau gadus morhua, siri desfiado e palmito fresco.",
+      descricao: "Camarões grandes, lascas de bacalhau Gadus morhua, siri desfiado, bem catado e sem casquinha, e palmito fresco.",
+      descricaoMarketing: "Camarões grandes, lascas de bacalhau Gadus morhua, siri desfiado, bem catado e sem casquinha, e palmito fresco.",
       origem: "Receita autoral · Desde o início do NÓZ",
       imagem: "imagens/torta-capixaba.webp",
       opcoes: [
