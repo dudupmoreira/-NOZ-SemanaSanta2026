@@ -1206,8 +1206,13 @@ body {
 
 .checkout-btn:hover:not(:disabled) {
   background: var(--sage-hover);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 4px 12px rgba(107, 140, 92, 0.3);
+}
+
+@media (hover: hover) {
+  .checkout-btn:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(107, 140, 92, 0.3);
+  }
 }
 
 .checkout-btn:active:not(:disabled) {
