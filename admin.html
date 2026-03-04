@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M2TM3LP9');</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M2TM3LP9');</script>
     <!-- End Google Tag Manager -->
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BR3YMR3MLD"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BR3YMR3MLD');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-BR3YMR3MLD');
     </script>
-    
+
     <!-- Meta Pixel Code -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1549972042823192');
-    fbq('track', 'PageView');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1549972042823192');
+        fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1549972042823192&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=1549972042823192&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin — Semana Santa 2026 | Noz</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="imagens/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,8 +69,8 @@
             --color-border: #D4BC8A;
             --color-success: #28a745;
             --color-info: #17a2b8;
-            --shadow: 0 2px 8px rgba(0,0,0,0.08);
-            --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
         }
 
         body {
@@ -282,7 +288,7 @@
         }
 
         .filter-btn:hover:not(.active) {
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .btn-refresh {
@@ -575,6 +581,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Login Screen -->
     <div id="loginContainer" class="login-container">
@@ -582,14 +589,14 @@
             <div class="login-logo">🐟</div>
             <h1 class="login-title">Semana Santa do Noz 2026</h1>
             <p class="login-subtitle">Painel Administrativo</p>
-            
+
             <div class="input-group">
                 <label for="password">Senha de Acesso</label>
                 <input type="password" id="password" placeholder="Digite a senha" autocomplete="current-password">
             </div>
-            
+
             <button class="btn btn-primary" onclick="login()">Entrar</button>
-            
+
             <div id="loginError" class="error-message"></div>
         </div>
     </div>
@@ -604,15 +611,20 @@
                 </h1>
                 <div class="header-actions">
                     <div class="filter-group">
-                        <button class="filter-btn active" onclick="filterPedidos('todos')" data-filter="todos">Todos</button>
+                        <button class="filter-btn active" onclick="filterPedidos('todos')"
+                            data-filter="todos">Todos</button>
+                        <button class="filter-btn" onclick="filterPedidos('02/04')" data-filter="02/04">02/04</button>
                         <button class="filter-btn" onclick="filterPedidos('03/04')" data-filter="03/04">03/04</button>
                         <button class="filter-btn" onclick="filterPedidos('04/04')" data-filter="04/04">04/04</button>
                         <button class="filter-btn" onclick="filterPedidos('05/04')" data-filter="05/04">05/04</button>
                     </div>
                     <div class="filter-group">
-                        <button class="filter-btn active" onclick="filterByPaymentStatus('todos')" data-payment-filter="todos">Todos</button>
-                        <button class="filter-btn" onclick="filterByPaymentStatus('pagos')" data-payment-filter="pagos">Pagos</button>
-                        <button class="filter-btn" onclick="filterByPaymentStatus('aguardando')" data-payment-filter="aguardando">Aguardando</button>
+                        <button class="filter-btn active" onclick="filterByPaymentStatus('todos')"
+                            data-payment-filter="todos">Todos</button>
+                        <button class="filter-btn" onclick="filterByPaymentStatus('pagos')"
+                            data-payment-filter="pagos">Pagos</button>
+                        <button class="filter-btn" onclick="filterByPaymentStatus('aguardando')"
+                            data-payment-filter="aguardando">Aguardando</button>
                     </div>
                     <button class="btn btn-refresh" onclick="loadPedidos()">🔄 Atualizar</button>
                     <button class="btn btn-logout" onclick="logout()">Sair</button>
@@ -694,7 +706,7 @@
             }
         }
 
-        document.getElementById('password')?.addEventListener('keypress', function(e) {
+        document.getElementById('password')?.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') login();
         });
 
@@ -720,9 +732,9 @@
                 }
 
                 const data = await response.json();
-                
+
                 // Filtrar apenas oportunidades do pipeline "Pedidos Semana Santa 2026" com status "open" (ativas)
-                allPedidos = (data.opportunities || []).filter(opp => 
+                allPedidos = (data.opportunities || []).filter(opp =>
                     opp.pipelineId === API_CONFIG.pipelineId && opp.status === 'open'
                 );
 
@@ -747,9 +759,9 @@
         // Exibir pedidos
         function displayPedidos() {
             const container = document.getElementById('pedidosContainer');
-            
+
             let pedidosFiltrados = allPedidos;
-            
+
             // Aplicar filtro de data
             if (currentFilter !== 'todos') {
                 pedidosFiltrados = pedidosFiltrados.filter(pedido => {
@@ -758,7 +770,7 @@
                     return dataFormatada.includes(currentFilter);
                 });
             }
-            
+
             // Aplicar filtro de status de pagamento baseado no estágio do pipeline
             if (currentPaymentFilter !== 'todos') {
                 pedidosFiltrados = pedidosFiltrados.filter(pedido => {
@@ -774,7 +786,7 @@
             if (pedidosFiltrados.length === 0) {
                 let mensagem = 'Nenhum pedido encontrado';
                 let descricao = 'Tente ajustar os filtros para visualizar outros pedidos.';
-                
+
                 if (currentPaymentFilter === 'pagos') {
                     mensagem = 'Nenhum pedido pago';
                     descricao = 'Não há pedidos com PIX confirmado nesta seleção.';
@@ -782,7 +794,7 @@
                     mensagem = 'Nenhum pedido aguardando';
                     descricao = 'Não há pedidos aguardando confirmação de pagamento.';
                 }
-                
+
                 container.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-state-icon">📦</div>
@@ -804,15 +816,15 @@
             const valorTotal = getCustomField(pedido, 'valor_total') || 0;
             const valorEntrada = getCustomField(pedido, 'valor_entrada') || 0;
             const observacoes = getCustomField(pedido, 'observacoes') || '';
-            
+
             // Dados do contato (nested em opportunities)
             const contact = pedido.contact || {};
             const telefone = contact.phone || '';
             const whatsappLink = telefone ? `https://wa.me/${telefone.replace(/\D/g, '')}` : '#';
-            
+
             // Verificar se o PIX já foi confirmado (estágio "pago")
             const pixConfirmado = pedido.pipelineStageId === PIPELINE_STAGES.pago;
-            
+
             const produtosList = produtos.split('\n')
                 .filter(p => p.trim())
                 .map(p => `<div class="produto-item">${p}</div>`)
@@ -885,7 +897,7 @@
                 if (!opportunity || !opportunity.contactId) {
                     throw new Error('Contato não encontrado na oportunidade');
                 }
-                
+
                 // 1. Atualizar estágio da oportunidade para "Pago" e campo "status_pedido" para "PIX Confirmado"
                 const updateOppResponse = await fetch(
                     `${API_CONFIG.baseUrl}/opportunities/${opportunityId}`,
@@ -894,7 +906,7 @@
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({ 
+                        body: JSON.stringify({
                             pipelineStageId: PIPELINE_STAGES.pago,
                             customFields: [
                                 {
@@ -921,11 +933,11 @@
 
                 const contactData = await getContactResponse.json();
                 const currentTags = contactData.contact?.tags || [];
-                
+
                 // 3. Adicionar tag "pix-confirmado" se não existir
                 if (!currentTags.includes('pix-confirmado')) {
                     const newTags = [...currentTags, 'pix-confirmado'];
-                    
+
                     const updateContactResponse = await fetch(
                         `${API_CONFIG.baseUrl}/contacts/${opportunity.contactId}`,
                         {
@@ -948,7 +960,7 @@
                     const valorTotal = parseFloat(getCustomField(opportunity, 'valor_total')) || 0;
                     const valorEntrada = parseFloat(getCustomField(opportunity, 'valor_entrada')) || 0;
                     const dataRetirada = getCustomField(opportunity, 'data_retirada') || '';
-                    
+
                     if (typeof trackPurchaseReal === 'function') {
                         trackPurchaseReal({
                             transactionId: numeroPedido,
@@ -964,7 +976,7 @@
 
                 alert(`✅ PIX confirmado para o pedido #${numeroPedido}!\nAutomação de pagamento recebido será disparada.`);
                 await loadPedidos();
-                
+
             } catch (error) {
                 console.error('Erro ao confirmar PIX:', error);
                 alert(`❌ Erro ao confirmar PIX: ${error.message}`);
@@ -974,14 +986,14 @@
         // Filtrar pedidos por data
         function filterPedidos(filter) {
             currentFilter = filter;
-            
+
             document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.dataset.filter === filter) {
                     btn.classList.add('active');
                 }
             });
-            
+
             displayPedidos();
             updateStats();
         }
@@ -989,14 +1001,14 @@
         // Filtrar pedidos por status de pagamento
         function filterByPaymentStatus(filter) {
             currentPaymentFilter = filter;
-            
+
             document.querySelectorAll('.filter-btn[data-payment-filter]').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.dataset.paymentFilter === filter) {
                     btn.classList.add('active');
                 }
             });
-            
+
             displayPedidos();
             updateStats();
         }
@@ -1004,7 +1016,7 @@
         // Atualizar estatísticas
         function updateStats() {
             let pedidosFiltrados = allPedidos;
-            
+
             // Aplicar filtro de data
             if (currentFilter !== 'todos') {
                 pedidosFiltrados = pedidosFiltrados.filter(pedido => {
@@ -1013,7 +1025,7 @@
                     return dataFormatada.includes(currentFilter);
                 });
             }
-            
+
             // Aplicar filtro de status de pagamento baseado no estágio do pipeline
             if (currentPaymentFilter !== 'todos') {
                 pedidosFiltrados = pedidosFiltrados.filter(pedido => {
@@ -1043,7 +1055,7 @@
         function getCustomField(opportunity, fieldKey) {
             // Usar mapeamento de oportunidades
             const mappedId = OPPORTUNITY_FIELD_MAP[fieldKey];
-            
+
             // Buscar no array customFields da oportunidade
             if (opportunity.customFields && Array.isArray(opportunity.customFields)) {
                 const field = opportunity.customFields.find(f => f.id === mappedId);
@@ -1055,7 +1067,7 @@
                     if (field.type === 'array') return field.fieldValueArray ? field.fieldValueArray.join(', ') : '';
                 }
             }
-            
+
             return null;
         }
 
@@ -1066,7 +1078,7 @@
 
         function formatarData(data) {
             if (!data) return 'N/A';
-            
+
             // Se for um timestamp numérico, converter para data usando UTC
             if (typeof data === 'number') {
                 const date = new Date(data);
@@ -1074,19 +1086,19 @@
                 const mes = String(date.getUTCMonth() + 1).padStart(2, '0');
                 return `${dia}/${mes}`;
             }
-            
+
             // Converter para string se não for
             const dataStr = String(data);
-            
+
             // Se já está no formato dd/mm, retornar
             if (dataStr.includes('/')) return dataStr;
-            
+
             // Se está no formato ISO (yyyy-mm-dd), converter
             if (dataStr.includes('-')) {
                 const [ano, mes, dia] = dataStr.split('-');
                 return `${dia}/${mes}`;
             }
-            
+
             return dataStr;
         }
     </script>
@@ -1094,4 +1106,5 @@
     <!-- Tracking System -->
     <script src="js/tracking.js?v=20260223-1"></script>
 </body>
+
 </html>
