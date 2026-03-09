@@ -532,14 +532,16 @@ async function finalizarPedido() {
     produtos_pedido: cart.map(item => {
       const product = findProduct(item.productId);
       const opcao = product.opcoes[item.optionIndex];
-      return `${item.quantity}x ${product.nome} ${opcao.peso} - R$ ${formatPrice(opcao.preco * item.quantity)}`;
+      const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
+      return `${item.quantity}x ${fullName} ${opcao.peso} - R$ ${formatPrice(opcao.preco * item.quantity)}`;
     }).join('\n'),
     produtos_json: JSON.stringify(cart.map(item => {
       const product = findProduct(item.productId);
       const opcao = product.opcoes[item.optionIndex];
+      const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
       return {
         id: item.productId,
-        nome: product.nome,
+        nome: fullName,
         peso: opcao.peso,
         qtd: item.quantity,
         preco_unit: opcao.preco,
@@ -595,10 +597,11 @@ async function finalizarPedido() {
   const items = cart.map(item => {
     const product = findProduct(item.productId);
     const opcao = product.opcoes[item.optionIndex];
+    const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
     return {
       id: item.productId,
-      nome: product.nome,
-      preco: opcao.preco,
+      nome: fullName,
+      preco: opcao.peso,
       quantity: item.quantity,
       peso: opcao.peso,
       categoria: getCategoryFromProductId(item.productId)
@@ -629,9 +632,10 @@ function showConfirmationPage(pedido) {
   document.getElementById('orderSummaryItems').innerHTML = cart.map(item => {
     const product = findProduct(item.productId);
     const opcao = product.opcoes[item.optionIndex];
+    const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
     return `
       <div class="order-item">
-        <span>${item.quantity}x ${product.nome} (${opcao.peso})</span>
+        <span>${item.quantity}x ${fullName} (${opcao.peso})</span>
         <span>R$ ${formatPrice(opcao.preco * item.quantity)}</span>
       </div>
     `;
@@ -673,7 +677,8 @@ function showConfirmationPage(pedido) {
   const itensResumo = cart.map(item => {
     const product = findProduct(item.productId);
     const opcao = product.opcoes[item.optionIndex];
-    return `• ${item.quantity}x ${product.nome} (${opcao.peso})`;
+    const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
+    return `• ${item.quantity}x ${fullName} (${opcao.peso})`;
   }).join('\n');
 
   const mensagemWhatsApp = encodeURIComponent(
@@ -703,8 +708,9 @@ function showConfirmationPage(pedido) {
     i: cart.map(item => {
       const product = findProduct(item.productId);
       const opcao = product.opcoes[item.optionIndex];
+      const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
       return {
-        nome: product.nome,
+        nome: fullName,
         peso: opcao.peso,
         qtd: item.quantity,
         preco: opcao.preco * item.quantity
