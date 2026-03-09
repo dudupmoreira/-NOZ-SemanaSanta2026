@@ -212,7 +212,8 @@ function addToCart(productId, optionIndex) {
 
   const product = findProduct(productId);
   const opcao = product.opcoes[optionIndex];
-  showToast(`<strong>${product.nome}</strong> adicionado!`);
+  const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
+  showToast(`<strong>${fullName}</strong> adicionado!`);
 
   // Pulse animation on cart float
   const cartFloat = document.getElementById('cartFloat');
@@ -225,7 +226,7 @@ function addToCart(productId, optionIndex) {
   // Tracking: AddToCart
   trackAddToCart({
     id: productId,
-    nome: product.nome,
+    nome: fullName,
     preco: opcao.preco,
     quantidade: 1,
     peso: opcao.peso,
@@ -254,11 +255,12 @@ function removeFromCart(productId, optionIndex) {
   if (itemToRemove) {
     const product = findProduct(productId);
     const opcao = product.opcoes[optionIndex];
+    const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
 
     // Tracking: RemoveFromCart
     trackRemoveFromCart({
       id: productId,
-      nome: product.nome,
+      nome: fullName,
       preco: opcao.preco,
       quantidade: itemToRemove.quantity,
       peso: opcao.peso,
@@ -309,9 +311,10 @@ function openCart() {
     const items = cart.map(item => {
       const product = findProduct(item.productId);
       const opcao = product.opcoes[item.optionIndex];
+      const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
       return {
         id: item.productId,
-        nome: product.nome,
+        nome: fullName,
         preco: opcao.preco,
         quantity: item.quantity,
         peso: opcao.peso,
@@ -441,9 +444,10 @@ function renderCartItem(item) {
   const product = findProduct(item.productId);
   const opcao = product.opcoes[item.optionIndex];
   const subtotal = opcao.preco * item.quantity;
+  const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
 
   const imageHtml = product.imagem
-    ? `<img src="${product.imagem}" alt="${product.nome}" class="cart-item-image">`
+    ? `<img src="${product.imagem}" alt="${fullName}" class="cart-item-image">`
     : `<div class="cart-item-placeholder">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
           <path d="M8.1 13.34L10.93 10.51L13.76 13.34L18.76 8.34L20.17 9.75L13.76 16.16L10.93 13.34L7.27 17H20V19H4V6H6V14.27L8.1 13.34M6 3V1H8V3H6M11 3V1H13V3H11M16 3V1H18V3H16Z"/>
@@ -456,7 +460,7 @@ function renderCartItem(item) {
         ${imageHtml}
       </div>
       <div class="cart-item-info">
-        <span class="cart-item-name">${product.nome}</span>
+        <span class="cart-item-name">${fullName}</span>
         <span class="cart-item-weight">${opcao.peso}</span>
         <span class="cart-item-price">R$ ${formatPrice(subtotal)}</span>
       </div>
@@ -765,9 +769,10 @@ function openImageZoom(imageSrc) {
     const product = products.find(p => p.imagem === imageSrc);
     if (product) {
       const preco = product.opcoes[0].preco; // Pegar primeira opção como referência
+      const fullName = product.nomeComplemento ? `${product.nome} ${product.nomeComplemento}` : product.nome;
       trackViewContent({
         id: product.id,
-        nome: product.nome,
+        nome: fullName,
         preco: preco,
         categoria: getCategoryFromProductId(product.id)
       });
